@@ -21,7 +21,7 @@ app.post('/api/mood', (req, res) => {
   res.json({ message });
 });
 
-app.get('/*', (req, res) => {
+app.get('*', (req, res) => {
   res.sendFile(path.resolve(__dirname, '../Frontend_Soulmegle/dist/index.html'));
 });
 
