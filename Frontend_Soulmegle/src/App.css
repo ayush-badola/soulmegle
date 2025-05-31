@@ -1,0 +1,164 @@
+body, html, #root {
+  margin: 0; 
+  padding: 0; 
+  font-family: 'Poppins', sans-serif;  
+  height: 100%;
+  background: 
+    linear-gradient(135deg, rgba(252,234,255,0.75), rgba(224,212,253,0.75)),
+    url('/background-image.png') no-repeat center center fixed;
+  background-size: cover;
+  background-blend-mode: overlay;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.app {
+  height: 100vh;
+  width: 100%;
+  display: flex; 
+  align-items: stretch;
+  padding: 0;
+  justify-content: flex-start; /* Changed to align left */
+}
+
+.split-container {
+  display: flex;
+  height: 100%;
+  overflow: hidden;
+  width: 100%; /* Full width */
+  max-width: none; /* Remove max-width constraint */
+  margin: 0; /* Remove auto margins */
+}
+
+.video-container {
+  flex: 0 0 45%;
+  position: relative;
+  min-width: 0;
+  border-radius: 0 !important;
+}
+
+.background-video {
+  position: absolute;
+  top: 0; 
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.chat-container {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(12px);
+  padding: 25px;
+}
+
+/* Original logo styling */
+h1 {
+  text-align: center; 
+  background: linear-gradient(135deg, #7f3fff, #5a00b1);
+  -webkit-background-clip: text; 
+  color: transparent; 
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+}
+
+.chat-window {
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  border-radius: 16px;
+  padding: 16px;
+  flex: 1; 
+  overflow: visible;
+  margin: 20px 0; 
+  display: flex; 
+  flex-direction: column; 
+}
+
+.typing-indicator {
+  font-style: italic; 
+  color: #666; 
+  margin: 10px;
+  text-align: center;
+}
+
+/* Mood Selector Styling */
+.mood-selector {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 15px;
+}
+
+.mood-btn {
+  background: rgba(180, 150, 255, 0.2);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  color: #5a00b1;
+  padding: 12px 20px;
+  border-radius: 50px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  min-width: 100px;
+}
+
+.mood-btn:hover {
+  background: rgba(180, 150, 255, 0.35);
+  transform: translateY(-3px);
+}
+
+/* Message Bubble Styling */
+.message-bubble {
+  max-width: 80%;
+  padding: 14px 20px;
+  margin: 10px 0;
+  border-radius: 24px;
+  position: relative;
+}
+
+.message-bubble.user {
+  background: linear-gradient(135deg, #7f3fff, #5a00b1);
+  color: white;
+  align-self: flex-end;
+  border-bottom-right-radius: 8px;
+}
+
+.message-bubble.soul {
+  background: rgba(255, 255, 255, 0.4);
+  color: #333;
+  align-self: flex-start;
+  border-bottom-left-radius: 8px;
+}
+
+/* Scrollbar styling */
+.chat-window::-webkit-scrollbar {
+  width: 8px;
+}
+
+.chat-window::-webkit-scrollbar-thumb {
+  background: rgba(120,80,200,0.4);
+  border-radius: 4px;
+}
+
+@media (max-width: 768px) {
+  .split-container {
+    flex-direction: column;
+    
+  }
+  
+  .video-container {
+    /* height: 40vh; */
+  min-height: 200px;
+  max-height: 300px;
+    flex: 0 0 50vh;
+    border-radius: 0 !important;
+  }
+  
+  .chat-container {
+    flex: 1;
+  }
+}
