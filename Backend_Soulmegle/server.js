@@ -21,8 +21,8 @@ app.post('/api/mood', (req, res) => {
   res.json({ message });
 });
 
-app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, '../Frontend_Soulmegle/dist/index.html'));
+app.get('/*', (req, res) => {
+  res.sendFile(path.resolve(__dirname, '../Frontend_Soulmegle/dist/index.html'));
 });
 
 const PORT = process.env.PORT || 5000;
