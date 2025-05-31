@@ -27,10 +27,11 @@ function App() {
     setLoading(true);
 
     try {
-      const res = await axios.post(`${import.meta.env.BACKEND_URL || 'http://localhost:5000'}/api/mood`, { mood });
+      const res = await axios.post(`${import.meta.env.VITE_BACKEND_URL}/api/mood`, { mood });
       setMessages(prev => [...prev, { text: res.data.message, sender: 'soul' }]);
-    } catch {
+    } catch (err){
       setMessages(prev => [...prev, { text: "Oops! Something went wrong.", sender: 'soul' }]);
+      console.log(err);
     } finally {
       setLoading(false);
     }
