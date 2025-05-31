@@ -27,7 +27,7 @@ function App() {
     setLoading(true);
 
     try {
-      const res = await axios.post('https://soulmegle-backend-749p.onrender.com/api/mood', { mood });
+      const res = await axios.post(`${process.env.BACKEND_URL || 'localhost:5000'}/api/mood`, { mood });
       setMessages(prev => [...prev, { text: res.data.message, sender: 'soul' }]);
     } catch {
       setMessages(prev => [...prev, { text: "Oops! Something went wrong.", sender: 'soul' }]);
